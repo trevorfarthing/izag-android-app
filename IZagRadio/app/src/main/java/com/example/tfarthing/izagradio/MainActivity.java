@@ -1,5 +1,7 @@
 package com.example.tfarthing.izagradio;
 
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +14,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    MediaPlayer mediaPlayer;
+    Boolean isPlaying;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +30,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +39,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
+        isPlaying = false;
+
     }
 
     @Override
@@ -80,13 +83,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_listen) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_about_us) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_shows) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_schedule) {
 
         } else if (id == R.id.nav_share) {
 
@@ -97,5 +100,22 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onTogglePlay(View view) {
+
+        ImageView playBtn = (ImageView) findViewById(R.id.play_btn);
+
+        if (isPlaying) {
+            playBtn.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+            mediaPlayer.pause();
+            isPlaying = false;
+        }
+        else {
+            playBtn.setImageResource(R.drawable.ic_pause_black_24dp);
+            mediaPlayer.start();
+            isPlaying = true;
+        }
+
     }
 }
