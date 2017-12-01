@@ -49,12 +49,12 @@ public class ListenFragment extends Fragment {
         ImageView playBtn = (ImageView) myView.findViewById(R.id.play_btn);
 
         if (isPlaying) {
-            playBtn.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+            playBtn.setImageResource(R.drawable.ic_play_circle_outline_white);
             mediaPlayer.pause();
             isPlaying = false;
         }
         else {
-            playBtn.setImageResource(R.drawable.ic_pause_black_24dp);
+            playBtn.setImageResource(R.drawable.ic_pause_circle_outline_white);
             mediaPlayer.start();
             isPlaying = true;
         }

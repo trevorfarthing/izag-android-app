@@ -1,32 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_background">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/app_bar_main"
-        tools:context="com.example.tfarthing.izagradio.MainActivity"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:weightSum="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.tfarthing.izagradio.MainActivity"
+        tools:showIn="@layout/app_bar_main"
+        >
 
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:src="@drawable/zags_on_three" />
+
+        <TextView
+            android:id="@+id/showNameTextView"
             android:layout_width="match_parent"
-            android:layout_height="268dp"
-            android:src="@drawable/zags_on_three"
-            android:layout_weight="0.91" />
+            android:layout_height="wrap_content"
+            android:text="Zags on Three"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/showHostsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kendra Andrews and Jackson Frank"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"/>
 
         <ImageView
             android:id="@+id/play_btn"
             android:layout_width="wrap_content"
-            android:layout_height="88dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_play_arrow_black_24dp"/>
+            android:src="@drawable/ic_play_circle_outline_white"
+            android:layout_marginBottom="15dp"
+            />
 
 
     </LinearLayout>
