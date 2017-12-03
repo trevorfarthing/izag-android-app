@@ -5,4 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="whoAreWeBody">iZAG is Gonzaga University\'s student-run
+        internet radio station streaming 24/7. It is a mixed format and mix
+        genre station, featuring news, sports, podcasts, live broadcasts,
+        and music shows from people in the Gonzaga community.</string>
 </resources>

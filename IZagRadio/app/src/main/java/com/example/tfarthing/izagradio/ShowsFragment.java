@@ -19,6 +19,8 @@ public class ShowsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.shows_layout, container, false);
+        // Set Title
+        getActivity().setTitle("Shows");
         return myView;
     }
 }

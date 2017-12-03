@@ -19,6 +19,8 @@ public class ScheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.schedule_layout, container, false);
+        // Set Title
+        getActivity().setTitle("Schedule");
         return myView;
     }
 }
