@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background">
+
+    <TextView
+        android:id="@+id/showTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Show Title"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/showLogo"
+        android:src="@drawable/izag_logo"
+        android:maxWidth="250dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/showDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Description"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/soundcloud_logo"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:maxWidth="30dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        />
+</LinearLayout>

@@ -1,10 +1,14 @@
 package com.example.tfarthing.izagradio;
 
+import android.graphics.Bitmap;
+
+import java.io.Serializable;
+
 /**
  * Created by tfarthing on 12/2/17.
  */
 
-public class Show {
+public class Show implements Serializable {
     private String title;
     private String description;
     private String imageURL;
