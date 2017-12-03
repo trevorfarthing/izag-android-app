@@ -136,18 +136,21 @@ public class ShowsFragment extends Fragment {
                             Show show = new Show();
                            Elements tableDatas = tableRow.getElementsByTag("td");
                            String description = tableDatas.get(1).text();
-                           show.setDescription(description);
+                            System.out.println(description);
+                           if(description != null && !description.equals("")) {
+                               show.setDescription(description);
 
-                           // TODO: Implement better text processing, this is currently just a workaround
-                            // Most of the descriptions begin with the title of the show
-                           if(description.indexOf("is") != -1) {
-                               show.setTitle(description.substring(0, description.indexOf("is")));
-                           } else if(description.indexOf(",") != -1) {
-                               show.setTitle(description.substring(0, description.indexOf(",")));
-                           } else {
-                               show.setTitle("iZag Show");
+                               // TODO: Implement better text processing, this is currently just a workaround
+                               // Most of the descriptions begin with the title of the show
+                               if (description.indexOf("is") != -1) {
+                                   show.setTitle(description.substring(0, description.indexOf("is")));
+                               } else if (description.indexOf(",") != -1) {
+                                   show.setTitle(description.substring(0, description.indexOf(",")));
+                               } else {
+                                   show.setTitle("iZag Show");
+                               }
+                               shows.add(show);
                            }
-                           shows.add(show);
                         }
                     }
                 }
