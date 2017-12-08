@@ -9,10 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
 
 public class ShowInfoActivity extends AppCompatActivity {
 
@@ -25,17 +22,16 @@ public class ShowInfoActivity extends AppCompatActivity {
         TextView showTitleTextView = (TextView)findViewById(R.id.showTitle);
         TextView descriptionTextView = (TextView)findViewById(R.id.showDescription);
         ImageView showImage = (ImageView)findViewById(R.id.showLogo);
-        ImageView soundCloudbutton = findViewById(R.id.soundcloud_button);
+        ImageView soundCloudButton = findViewById(R.id.soundcloud_button);
 
         // Get the data from the intent
         showTitleTextView.setText(getIntent().getStringExtra("showTitle"));
         descriptionTextView.setText(getIntent().getStringExtra("showDescription"));
         Glide.with(this).load(getIntent().getStringExtra("showImageURL")).into(showImage);
 
-
-        // Set up the soundcloud button
+        // Set up the SoundCloud button
         final String soundCloudURL = getIntent().getStringExtra("soundCloudURL");
-        soundCloudbutton.setOnClickListener(new View.OnClickListener() {
+        soundCloudButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);

@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -81,6 +80,7 @@ public class ScheduleFragment extends Fragment {
         // ImageView to hold the schedule of that day (for now)
         final ImageView scheduleImage = myView.findViewById(R.id.schedule_image);
 
+        // Set the schedule image depending on the day selected
         scheduleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -121,6 +121,7 @@ public class ScheduleFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
 
+        // Set the spinner according to what day of the week it currently is
         switch (day) {
             case Calendar.MONDAY:
                 scheduleSpinner.setSelection(0);
