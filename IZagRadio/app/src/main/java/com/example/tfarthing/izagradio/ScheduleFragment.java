@@ -33,11 +33,8 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.schedule_layout, container, false);
 
-
-
-
         // Set Title
-        getActivity().setTitle("Schedule");
+        getActivity().setTitle("");
         return myView;
     }
 

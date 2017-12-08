@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Weekly Schedule"
+        android:text="@string/weekly_schedule"
         android:textSize="24sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/white"/>

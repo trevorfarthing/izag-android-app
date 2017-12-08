@@ -30,7 +30,7 @@
             android:id="@+id/showNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="iZag Live Stream"
+            android:text="@string/iZag_live_stream"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
@@ -39,7 +39,7 @@
             android:id="@+id/showHostsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gonzaga University"
+            android:text="@string/gu"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@android:color/white"/>

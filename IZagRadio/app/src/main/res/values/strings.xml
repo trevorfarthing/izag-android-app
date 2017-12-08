@@ -10,4 +10,44 @@
         internet radio station streaming 24/7. It is a mixed format and mix
         genre station, featuring news, sports, podcasts, live broadcasts,
         and music shows from people in the Gonzaga community.</string>
+
+
+    <string name="will_hurtado_name">William Hurtado</string>
+    <string name="will_hurtado_title">Radio Station Manager</string>
+
+    <string name="minigan_name">Frances Minigan</string>
+    <string name="minigan_title">Radio Station Manager</string>
+
+    <string name="kyzyl_name">Kyzyl Atienza</string>
+    <string name="kyzyl_title">Music Analyst</string>
+
+    <string name="scallen_name">Jackson Scallen</string>
+    <string name="scallen_title">Music Analyst</string>
+
+    <string name="mcdaniel_name">Grace McDaniel</string>
+    <string name="mcdaniel_title">Marketing</string>
+
+    <string name="thevdt_name">Paul Thvedt</string>
+    <string name="thevdt_title">Web Tech</string>
+
+    <string name="vandenboom_name">Colleen Vandenboom</string>
+    <string name="vadenboom_title">iZag Advisor</string>
+
+    <string name="about_us_title">About Us</string>
+
+    <string name="iZag_live_stream">iZag Live Stream</string>
+
+    <string name="gu">Gonzaga University</string>
+
+    <string name="iZag_internet_radio">iZag Internet Radio</string>
+
+    <string name="weekly_schedule">Weekly Schedule</string>
+
+    <string name="shows_title">Our Shows</string>
+
+
+
+
+
+
 </resources>

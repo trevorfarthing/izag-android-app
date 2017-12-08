@@ -31,9 +31,6 @@ import java.util.List;
 public class AboutUsFragment extends Fragment {
 
     View myView;
-    private LinearLayout linearLayout = null;
-    private List<Staff> staffList;
-    private ListView staffListView;
 
     @Nullable
     @Override
