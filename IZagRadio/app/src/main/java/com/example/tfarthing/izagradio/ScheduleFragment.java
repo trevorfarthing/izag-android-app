@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -31,6 +32,10 @@ public class ScheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.schedule_layout, container, false);
+
+
+
+
         // Set Title
         getActivity().setTitle("Schedule");
         return myView;
@@ -115,5 +120,41 @@ public class ScheduleFragment extends Fragment {
 
             }
         });
+
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch (day) {
+            case Calendar.MONDAY:
+                scheduleSpinner.setSelection(0);
+                break;
+
+            case Calendar.TUESDAY:
+                scheduleSpinner.setSelection(1);
+                break;
+
+            case Calendar.WEDNESDAY:
+                scheduleSpinner.setSelection(2);
+                break;
+
+            case Calendar.THURSDAY:
+                scheduleSpinner.setSelection(3);
+                break;
+
+            case Calendar.FRIDAY:
+                scheduleSpinner.setSelection(4);
+                break;
+
+            case Calendar.SATURDAY:
+                scheduleSpinner.setSelection(5);
+                break;
+
+            case Calendar.SUNDAY:
+                scheduleSpinner.setSelection(6);
+                break;
+
+            default:
+                scheduleSpinner.setSelection(0);
+        }
     }
 }

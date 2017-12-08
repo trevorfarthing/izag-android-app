@@ -27,16 +27,24 @@
         android:layout_marginBottom="20dp"
         android:textColor="@color/white"/>
 
+    
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/schedule_spinner"></Spinner>
-
-    <ImageView
+        android:id="@+id/schedule_spinner"
+        android:scrollbarSize="18dp"></Spinner>
+    
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/monday"
-        android:id="@+id/schedule_image"/>
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/monday"
+            android:id="@+id/schedule_image"/>
+    </ScrollView>
+
 
 </LinearLayout>
