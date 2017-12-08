@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.content_frame, new ListenFragment())
                 .commit();
 
-        //mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
         mediaPlayer = MediaPlayer.create(this, Uri.parse(DEFAULT_STREAMING_URL));
+
+        //TODO: Get the URL using an API or other method instead of hard coding
         //MainActivity.getStreamingURLTask asyncTask = new MainActivity.getStreamingURLTask();
         //asyncTask.execute(MAIN_PAGE_URL);
         isPlaying = false;
@@ -130,6 +131,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    // TODO: Change the method of retrieving the streaming URL
+    // The streaming player is likely loaded with Javascript (not static HTML)
+    // with a different playSessionId each time
+
     private class getStreamingURLTask extends AsyncTask<String, Integer, String> {
 
         final String TAG = "getStreamingURLTask";
@@ -138,18 +143,14 @@ public class MainActivity extends AppCompatActivity
             // The url of the stream to be returned
             String url = "";
 
-            // parse the webpage to get the URL
+            // Parse the webpage to get the URL
             try {
-                System.out.println("HERE 0!! " + strings[0]);
                 Document doc = Jsoup.connect(strings[0]).get();
 
-                // Stream is held in a video tag
-                Elements videoHolders = doc.getElementsByClass("videoDisplay");
+                Elements videoHolders = doc.getElementsByClass("persistentNativePlayer nativeEmbedPlayerPid");
                 if(videoHolders != null && videoHolders.size() != 0) {
-                    System.out.println("HERE 1!!");
                     Elements videos = videoHolders.get(0).getElementsByTag("video");
                     if(videos != null && videos.size() != 0) {
-                        System.out.println("HERE 2!!");
                         url = videos.get(0).attr("src");
                     }
 
@@ -157,7 +158,6 @@ public class MainActivity extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println("STREAMING URL!!! " + url);
             return url;
         }
 
@@ -179,23 +179,4 @@ public class MainActivity extends AppCompatActivity
             super.onProgressUpdate(values);
         }
     }
-
-    /*
-    public void onTogglePlay(View view) {
-
-        ImageView playBtn = (ImageView) findViewById(R.id.play_btn);
-
-        if (isPlaying) {
-            playBtn.setImageResource(R.drawable.ic_play_arrow_black_24dp);
-            mediaPlayer.pause();
-            isPlaying = false;
-        }
-        else {
-            playBtn.setImageResource(R.drawable.ic_pause_black_24dp);
-            mediaPlayer.start();
-            isPlaying = true;
-        }
-
-    }
-    */
 }

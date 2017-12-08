@@ -40,7 +40,6 @@ public class ShowsFragment extends Fragment {
     final static String IMAGES_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/iZAG%20Images/";
     final static String SHOWS_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/iZAG%20Shows/";
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -80,7 +79,7 @@ public class ShowsFragment extends Fragment {
             }
         });
 
-        // Create List for types of notes
+        // Create List for types of Shows
         showList = new ArrayList<>();
 
         // Create the array adapter
@@ -89,17 +88,17 @@ public class ShowsFragment extends Fragment {
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                // Current note type
+                // Current Show selected
                 Show show = showList.get(position);
 
                 TextView textView1 = (TextView)view.findViewById(android.R.id.text1);
                 textView1.setText(show.getTitle());
                 textView1.setTextSize(20);
-
                 textView1.setTextColor(getResources().getColor(R.color.colorText));
 
                 ImageView imageView = (ImageView)view.findViewById(android.R.id.icon);
-                //imageView.setImageBitmap(show.getImage());
+
+                // Load the image into the ImageView with Glide
                 Glide.with(getActivity()).load(show.getImageURL()).into(imageView);
 
                 GridLayout.LayoutParams adapterViewParams = new GridLayout.LayoutParams();
@@ -121,8 +120,6 @@ public class ShowsFragment extends Fragment {
             public Show getItem(int position) {
                 return showList.get(position);
             }
-
-
         };
 
         showsListView.setAdapter(arrayAdapter);
@@ -130,20 +127,16 @@ public class ShowsFragment extends Fragment {
         // Start the asynchronous task to parse the iZag web page and get content
         ParseWebPageTask asyncTask = new ParseWebPageTask();
         asyncTask.execute(SHOWS_PAGE_URL);
-        //LoadImageTask loadImageTask = new LoadImageTask();
-        //loadImageTask.execute(SHOWS_PAGE_URL);
-
     }
 
     private class ParseWebPageTask extends AsyncTask<String, Integer, List<Show>> {
-
         final String TAG = "ParseWebPageTask";
         @Override
         protected List<Show> doInBackground(String... strings) {
-            // list of shows to be returned at end of task
+            // List of shows to be returned at end of task
             List<Show> shows = new ArrayList<>();
 
-            // attempt to parse the webpage
+            // Attempt to parse the webpage using Jsoup
             try {
                 Document doc = Jsoup.connect(strings[0]).get();
                 String title = doc.title();
@@ -177,6 +170,7 @@ public class ShowsFragment extends Fragment {
                             Elements links = imageContainer.getElementsByTag("a");
                             Elements images;
                             String showPageLink = "";
+
                             if (links == null || links.isEmpty()) {
                                 images = imageContainer.getElementsByTag("img");
                             } else {
@@ -208,12 +202,8 @@ public class ShowsFragment extends Fragment {
             return shows;
         }
 
-        // onPostExecute() executes after doInBackground returns
-        // return value of doInBackground is the parameter of onPostExecute()
-
-
         protected String getSoundCloudURL(String pageURL) {
-            // By default, set URL to the soundCloud website
+            // By default, set URL to the SoundCloud website
             String soundCloudURL = "https://www.soundcloud.com";
             try {
                 Document doc = Jsoup.connect(pageURL).get();
