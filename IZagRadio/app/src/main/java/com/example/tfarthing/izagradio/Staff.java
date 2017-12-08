@@ -1,6 +1,10 @@
 package com.example.tfarthing.izagradio;
 
 /**
+ *
+ * Will be used for future integrations for tracking
+ * information about staff
+ *
  * Created by jtwheadon on 12/7/17.
  */
 

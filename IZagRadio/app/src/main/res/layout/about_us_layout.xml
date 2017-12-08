@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="About Us"
+        android:text="@string/about_us_title"
         android:textSize="24sp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/white"/>
@@ -68,7 +68,7 @@
                 android:layout_height="match_parent"
                 android:text="Our Staff"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -84,17 +84,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Frances Minigan"
-                android:textSize="16dp"
+                android:text="@string/minigan_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Radio Station Manager"
+                android:text="@string/minigan_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -109,17 +109,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="William Hurtado"
-                android:textSize="16dp"
+                android:text="@string/will_hurtado_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Radio Station Manager"
+                android:text="@string/will_hurtado_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -134,17 +134,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Kyzyl Atienza"
-                android:textSize="16dp"
+                android:text="@string/kyzyl_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Music Analyst"
+                android:text="@string/kyzyl_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -159,17 +159,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Jackson Scallen"
-                android:textSize="16dp"
+                android:text="@string/scallen_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Music Analyst"
+                android:text="@string/scallen_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -184,17 +184,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Grace McDaniel"
-                android:textSize="16dp"
+                android:text="@string/mcdaniel_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Marketing"
+                android:text="@string/mcdaniel_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -209,17 +209,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Paul Thvedt"
-                android:textSize="16dp"
+                android:text="@string/thevdt_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Web Tech"
+                android:text="@string/thevdt_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -234,17 +234,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Colleen Vandenboom"
-                android:textSize="16dp"
+                android:text="@string/vandenboom_name"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="iZAG Advisor"
+                android:text="@string/vadenboom_title"
                 android:layout_marginLeft="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
