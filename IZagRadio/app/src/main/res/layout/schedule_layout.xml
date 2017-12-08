@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/schedule_layout"
+    android:background="@drawable/main_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
+        android:src="@drawable/gubulldog" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/scheduleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedule" />
+        android:gravity="center"
+        android:text="Weekly Schedule"
+        android:textSize="24sp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_spinner"></Spinner>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/monday"
+        android:id="@+id/schedule_image"/>
+
 </LinearLayout>
