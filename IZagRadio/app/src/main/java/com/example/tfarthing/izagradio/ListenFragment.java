@@ -18,7 +18,6 @@ public class ListenFragment extends Fragment {
 
     View myView;
     MediaPlayer mediaPlayer;
-    Boolean isPlaying;
 
     @Nullable
     @Override
@@ -35,11 +34,18 @@ public class ListenFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.zags_on_three);
-        isPlaying = false;
+        ImageView playBtn = (ImageView) myView.findViewById(R.id.play_btn);
+
+        // Set image
+        if (((MainActivity)this.getActivity()).isPlaying) {
+            playBtn.setImageResource(R.drawable.ic_pause_circle_outline_white);
+
+        }
+        else {
+            playBtn.setImageResource(R.drawable.ic_play_circle_outline_white);
+        }
 
         // Handle click event for calculate button
-        ImageView playBtn = (ImageView) myView.findViewById(R.id.play_btn);
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,15 +58,15 @@ public class ListenFragment extends Fragment {
 
         ImageView playBtn = (ImageView) myView.findViewById(R.id.play_btn);
 
-        if (isPlaying) {
+        if (((MainActivity)this.getActivity()).isPlaying) {
             playBtn.setImageResource(R.drawable.ic_play_circle_outline_white);
-            mediaPlayer.pause();
-            isPlaying = false;
+            ((MainActivity)this.getActivity()).mediaPlayer.pause();
+            ((MainActivity)this.getActivity()).isPlaying = false;
         }
         else {
             playBtn.setImageResource(R.drawable.ic_pause_circle_outline_white);
-            mediaPlayer.start();
-            isPlaying = true;
+            ((MainActivity)this.getActivity()).mediaPlayer.start();
+            ((MainActivity)this.getActivity()).isPlaying = true;
         }
 
     }

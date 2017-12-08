@@ -1,6 +1,7 @@
 package com.example.tfarthing.izagradio;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -22,10 +23,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    /*
     MediaPlayer mediaPlayer;
     Boolean isPlaying;
-    */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity
         getFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, new ListenFragment())
                 .commit();
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
+        isPlaying = false;
 
         /*
         mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
@@ -94,9 +97,12 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_frame, new ShareFragment())
                     .commit();
         } else if (id == R.id.nav_contact_us) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new ContactUsFragment())
-                    .commit();
+            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            String emailList[] = { "user@fakehost.com" };
+            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, emailList);
+            startActivity(Intent.createChooser(emailIntent, "Send your email in:"));
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
