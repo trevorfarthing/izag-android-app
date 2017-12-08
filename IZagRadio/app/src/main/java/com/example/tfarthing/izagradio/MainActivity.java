@@ -89,9 +89,16 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_frame, new ScheduleFragment())
                     .commit();
         } else if (id == R.id.nav_share) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new ShareFragment())
-                    .commit();
+            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+                    "Listen to iZag! (:");
+
+            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+                    "Have you heard about iZag Radio!? It's an awesome student run radio station here at GU! \n \n" +
+                            "Check them out at izagradio.com");
+            startActivity(Intent.createChooser(emailIntent, "Send your email in:"));
+
         } else if (id == R.id.nav_contact_us) {
             Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
             emailIntent.setType("plain/text");

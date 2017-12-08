@@ -35,7 +35,9 @@
         android:text="@string/whoAreWeBody"
         android:textSize="16sp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,13 +48,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -73,13 +77,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Frances Minigan"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -88,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:text="Radio Station Manager"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -96,13 +102,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="William Hurtado"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -111,7 +119,7 @@
                 android:layout_height="match_parent"
                 android:text="Radio Station Manager"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -119,13 +127,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Kyzyl Atienza"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -134,7 +144,7 @@
                 android:layout_height="match_parent"
                 android:text="Music Analyst"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -142,13 +152,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Jackson Scallen"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -157,7 +169,7 @@
                 android:layout_height="match_parent"
                 android:text="Music Analyst"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -165,13 +177,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Grace McDaniel"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -180,7 +194,7 @@
                 android:layout_height="match_parent"
                 android:text="Marketing"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -188,13 +202,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Paul Thvedt"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -203,7 +219,7 @@
                 android:layout_height="match_parent"
                 android:text="Web Tech"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
@@ -211,13 +227,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Colleen Vandenboom"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -226,7 +244,7 @@
                 android:layout_height="match_parent"
                 android:text="iZAG Advisor"
                 android:layout_marginLeft="10dp"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
