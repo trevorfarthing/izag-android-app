@@ -1,7 +1,10 @@
 package com.example.tfarthing.izagradio;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,11 +23,24 @@ public class ShowInfoActivity extends AppCompatActivity {
         TextView showTitleTextView = (TextView)findViewById(R.id.showTitle);
         TextView descriptionTextView = (TextView)findViewById(R.id.showDescription);
         ImageView showImage = (ImageView)findViewById(R.id.showLogo);
+        ImageView soundCloudbutton = findViewById(R.id.soundcloud_button);
 
         // Get the data from the intent
         showTitleTextView.setText(getIntent().getStringExtra("showTitle"));
         descriptionTextView.setText(getIntent().getStringExtra("showDescription"));
         Glide.with(this).load(getIntent().getStringExtra("showImageURL")).into(showImage);
+
+
+        // Set up the soundcloud button
+        final String soundCloudURL = getIntent().getStringExtra("soundCloudURL");
+        soundCloudbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(soundCloudURL));
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,30 +46,27 @@ import java.util.List;
 public class ShowsFragment extends Fragment {
 
     View myView;
+    private LinearLayout linearLayout = null;
     private List<Show> showList;
     private ListView showsListView;
     final static String SHOWS_PAGE_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/iZAG/Our%20Shows.asp";
     final static String IMAGES_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/iZAG%20Images/";
+    final static String SHOWS_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/iZAG%20Shows/";
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         // Set Title
-        getActivity().setTitle("Shows");
-        //myView = inflater.inflate(R.layout.shows_layout, container, false);
+        getActivity().setTitle("");
+        myView = inflater.inflate(R.layout.shows_layout, container, false);
+        return myView;
+    }
 
-
-        // Create GridLayout for the activity
-        GridLayout gridLayout = new GridLayout(getActivity());
-        gridLayout.setColumnCount(1);
-        gridLayout.setPadding(20, 10, 20, 10);
-
-        // Create text view for the header
-        TextView header = new TextView(getActivity());
-        header.setText("Our Shows");
-        header.setTextSize(30);
-        header.setTextColor(getResources().getColor(R.color.colorText));
-        gridLayout.addView(header);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        linearLayout = (LinearLayout) view.findViewById(R.id.shows_layout);
 
         // Create List View to display all the shows
         showsListView = new ListView(getActivity());
@@ -79,7 +77,7 @@ public class ShowsFragment extends Fragment {
         showLayoutParams.topMargin = 15;
         showsListView.setLayoutParams(showLayoutParams);
         showsListView.setId(R.id.showListView);
-        gridLayout.addView(showsListView);
+        linearLayout.addView(showsListView);
 
         // Open up the show info if the user clicks on an item
         showsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -90,6 +88,7 @@ public class ShowsFragment extends Fragment {
                 intent.putExtra("showTitle", selectedShow.getTitle());
                 intent.putExtra("showDescription", selectedShow.getDescription());
                 intent.putExtra("showImageURL", selectedShow.getImageURL());
+                intent.putExtra("soundCloudURL", selectedShow.getSoundcloudURL());
                 startActivity(intent);
             }
         });
@@ -147,8 +146,6 @@ public class ShowsFragment extends Fragment {
         //LoadImageTask loadImageTask = new LoadImageTask();
         //loadImageTask.execute(SHOWS_PAGE_URL);
 
-        gridLayout.setBackgroundResource(R.drawable.main_background);
-        return gridLayout;
     }
 
     private class ParseWebPageTask extends AsyncTask<String, Integer, List<Show>> {
@@ -192,10 +189,12 @@ public class ShowsFragment extends Fragment {
                             Element imageContainer = tableDatas.get(0);
                             Elements links = imageContainer.getElementsByTag("a");
                             Elements images;
+                            String showPageLink = "";
                             if (links == null || links.isEmpty()) {
                                 images = imageContainer.getElementsByTag("img");
                             } else {
                                 images = links.get(0).getElementsByTag("img");
+                                showPageLink = links.get(0).attr("href");
                             }
                             if(images.isEmpty() || images == null)
                                 continue;
@@ -205,6 +204,12 @@ public class ShowsFragment extends Fragment {
                             String nameExtension = htmlImageName.substring(htmlImageName.lastIndexOf("/") + 1);
                             String url = IMAGES_URL + nameExtension.replace(" ", "%20");
                             show.setImageURL(url);
+
+                            // Format the show page URL correctly and get soundcloud URL
+                            String showURL = SHOWS_URL + showPageLink;
+                            String soundCloudURL = getSoundCloudURL(showURL);
+                            show.setSoundcloudURL(soundCloudURL);
+
                             shows.add(show);
                         }
                     }
@@ -217,6 +222,24 @@ public class ShowsFragment extends Fragment {
 
         // onPostExecute() executes after doInBackground returns
         // return value of doInBackground is the parameter of onPostExecute()
+
+
+        protected String getSoundCloudURL(String pageURL) {
+            // By default, set URL to the soundCloud website
+            String soundCloudURL = "https://www.soundcloud.com";
+            try {
+                Document doc = Jsoup.connect(pageURL).get();
+                Element content = doc.getElementById("main_content");
+                Elements soundCloudPlayers = content.getElementsByTag("iframe");
+                if(soundCloudPlayers != null && soundCloudPlayers.size() != 0) {
+                    Element soundCloudPlayer = soundCloudPlayers.get(0);
+                    soundCloudURL = soundCloudPlayer.attr("src");
+                }
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+            return soundCloudURL;
+        }
 
         @Override
         protected void onPostExecute(List<Show> shows) {

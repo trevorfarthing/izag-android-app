@@ -12,6 +12,7 @@ public class Show implements Serializable {
     private String title;
     private String description;
     private String imageURL;
+    private String soundcloudURL;
 
     public Show() {
         this.title = "Default title";
@@ -53,5 +54,13 @@ public class Show implements Serializable {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getSoundcloudURL() {
+        return soundcloudURL;
+    }
+
+    public void setSoundcloudURL(String soundcloudURL) {
+        this.soundcloudURL = soundcloudURL;
     }
 }
