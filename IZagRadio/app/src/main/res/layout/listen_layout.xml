@@ -24,13 +24,13 @@
             android:scaleType="fitCenter"
             android:scaleX="0.9"
             android:scaleY="0.9"
-            android:src="@drawable/zags_on_three" />
+            android:src="@drawable/izag_logo" />
 
         <TextView
             android:id="@+id/showNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zags on Three"
+            android:text="iZag Live Stream"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
@@ -39,7 +39,7 @@
             android:id="@+id/showHostsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kendra Andrews and Jackson Frank"
+            android:text="Gonzaga University"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@android:color/white"/>

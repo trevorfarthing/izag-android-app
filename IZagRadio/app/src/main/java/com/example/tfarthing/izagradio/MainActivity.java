@@ -4,6 +4,8 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,16 +18,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     MediaPlayer mediaPlayer;
     Boolean isPlaying;
+    private String streamingURL;
 
+    final static String DEFAULT_STREAMING_URL = "https://cdnapisec.kaltura.com/p/1153021/sp/115302100/playManifest/entryId/0_06thv5og/format/applehttp/protocol/http/uiConfId/12279542/a.m3u8?referrer=aHR0cHM6Ly93d3cuZ29uemFnYS5lZHU=&playSessionId=90aa834a-c5d3-be83-8c82-f2cd6d657469";
+    final static String MAIN_PAGE_URL = "https://www.gonzaga.edu/Student-Development/Student-Involvement-and-Leadership/Events-and-Initiatives/IZAG-Internet-Radio.asp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +65,11 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.content_frame, new ListenFragment())
                 .commit();
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
+        //mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
+        mediaPlayer = MediaPlayer.create(this, Uri.parse(DEFAULT_STREAMING_URL));
+        //MainActivity.getStreamingURLTask asyncTask = new MainActivity.getStreamingURLTask();
+        //asyncTask.execute(MAIN_PAGE_URL);
         isPlaying = false;
-
     }
 
     @Override
@@ -111,6 +128,56 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private class getStreamingURLTask extends AsyncTask<String, Integer, String> {
+
+        final String TAG = "getStreamingURLTask";
+        @Override
+        protected String doInBackground(String... strings) {
+            // The url of the stream to be returned
+            String url = "";
+
+            // parse the webpage to get the URL
+            try {
+                System.out.println("HERE 0!! " + strings[0]);
+                Document doc = Jsoup.connect(strings[0]).get();
+
+                // Stream is held in a video tag
+                Elements videoHolders = doc.getElementsByClass("videoDisplay");
+                if(videoHolders != null && videoHolders.size() != 0) {
+                    System.out.println("HERE 1!!");
+                    Elements videos = videoHolders.get(0).getElementsByTag("video");
+                    if(videos != null && videos.size() != 0) {
+                        System.out.println("HERE 2!!");
+                        url = videos.get(0).attr("src");
+                    }
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("STREAMING URL!!! " + url);
+            return url;
+        }
+
+        @Override
+        protected void onPostExecute(String url) {
+            super.onPostExecute(url);
+            // Update the streaming URL and create the stream
+            streamingURL = url;
+            mediaPlayer = MediaPlayer.create(MainActivity.this, Uri.parse(streamingURL));
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
     }
 
     /*
