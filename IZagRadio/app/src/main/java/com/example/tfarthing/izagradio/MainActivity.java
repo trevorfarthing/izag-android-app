@@ -53,10 +53,6 @@ public class MainActivity extends AppCompatActivity
         mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
         isPlaying = false;
 
-        /*
-        mediaPlayer = MediaPlayer.create(this, R.raw.zags_on_three);
-        isPlaying = false;
-*/
     }
 
     @Override
@@ -99,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_contact_us) {
             Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
             emailIntent.setType("plain/text");
-            String emailList[] = { "user@fakehost.com" };
+            String emailList[] = { "izagRadio@gmail.com" };
             emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, emailList);
             startActivity(Intent.createChooser(emailIntent, "Send your email in:"));
 
